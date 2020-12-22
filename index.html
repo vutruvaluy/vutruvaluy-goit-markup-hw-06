@@ -48,36 +48,78 @@
             <div class="backdrop is-hidden"  data-backdrop>
                 <div class="modal">
                    
-                    <form class="form js-speaker-form">
+                    <form class="form js-speaker-form" autocomplete="off">
                         <h1 class="form-text">Оставьте свои данные, мы вам перезвоним</h1>
                         <div class="form-field">
-                            <label for="name">Имя</label>
-                            <input type="text" name="name" id="name" autofocus> 
+                            <label for="name" class="form-lable">Имя</label>
+                            <input type="text" class="form-input" name="name" id="name" placeholder=" " autofocus />
+                            <svg class="form-icon" width="15" height="15">
+                                <use href="./img/modal.svg#icon-person-black-18dp-1-1"></use>
+                            </svg>
                         </div>
                         <div class="form-field">
-                            <label for="tel">Телефон</label>
-                            <input type="tel" name="tel" id="tel">
+                            <label for="tel"class="form-lable">Телефон</label>
+                                
+                            <input
+                             type="tel"
+                             class="form-input"
+                             name="tel"
+                             id="tel"
+                             placeholder=" "
+                            />
+                            <svg class="form-icon" width="15" height="15">
+                                <use href="./img/modal.svg#icon-phone-black-18dp-1-1"></use>
+                            </svg>
                         </div>
                         <div class="form-field">
-                            <label for="mail">Почта</label>
-                            <input type="email" name="mail" id="mail">
+                            <label for="mail" class="form-lable">Почта</label>
+                            <input
+                             type="email"
+                             class="form-input"
+                             name="mail"
+                             id="mail"
+                             placeholder=" "
+                            />
+                            <svg class="form-icon" width="15" height="15">
+                                <use href="./img/modal.svg#icon-email-black-18dp-1-1"></use>
+                            </svg>
                         </div>
                         <div class="form-field">
-                            <label for="comment">Комментарий</label>
-                            <textarea name="comment" id="comment" rows="7" placeholder="Введите текст"></textarea>
+                            <label for="comment" class="form-lable">Комментарий</label>
+                            <textarea
+                             name="comment" 
+                             id="comment" 
+                             rows="7" 
+                             placeholder="Введите текст">
+                            </textarea>
                         </div>
-                        <div class="consent-field">
-                            <input type="checkbox" name="policy" id="policy" />
-                            <label for="policy">Соглашаюсь с рассылкой и принимаю</label>
+                        <div class="lable-list" >
+                            <label class="lable">
+                                <input class="checkbox" type="checkbox" name="policy" id="policy" value="Соглашаюсь с рассылкой и принимаю"/>
+                                <span class="icon"></span>
+                                <span class="text-decor"> Соглашаюсь с рассылкой и принимаю
+                                    <a class="agreement" href="https://google.com" target="_blank">Условия договора</a>
+                                </span>
+                            </label>
                         </div>
-                        
                         <button class="form-button" type="submit">Отправить</button>
-
-                        
                     </form>
                     <button data-close-modal class="buttom">&#10005</button>
                 </div>
             </div>
+            <script>
+                (() => {
+                    document
+                      .querySelector('.js-speaker-form')
+                      .addEventListener('submit', e =>{
+                          e.preventDefault();
+
+                          new FormData(e.currentTarget).forEach((value, name) =>
+                            console.log(`${name}: ${value}`),
+                          );
+                        });
+                })();
+            </script>
             <script>
                 const refs = {
                     openModalBtn: document.querySelector("[data-open-modal]"),

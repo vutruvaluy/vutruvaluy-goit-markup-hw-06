@@ -492,11 +492,12 @@ textarea {
     padding: 40px;
 }
 .form-field{
+    position: relative;
     display: flex;
     flex-direction: column;
     margin-bottom: 10px;
 }
-.form-field label{
+.form-lable{
     margin-bottom: 4px;
     margin-right: auto;
     font-family: Roboto;
@@ -507,13 +508,14 @@ textarea {
     letter-spacing: 0.01em;
     color: #757575;
 }
-.form-field input{
+.form-input {
     margin: 0;
-    padding: 10px 20px;
+    padding: 10px 42px;
     border: 1px solid rgba(33, 33, 33, 0.2);
     box-sizing: border-box;
     border-radius: 4px;
 }
+
 .form-field textarea{
     margin: 0;
     padding: 10px 20px;
@@ -522,6 +524,7 @@ textarea {
     border-radius: 4px;
 }
 .form-field textarea::placeholder{
+    
     font-family: Roboto;
     font-style: normal;
     font-weight: normal;
@@ -530,22 +533,35 @@ textarea {
     letter-spacing: 0.01em;
     color: rgba(117, 117, 117, 0.5);
 }
+
 .consent-field {
     margin-bottom: 30px;
+    
 }
-.consent-field input{
-    background-color: black;
-}
-.consent-field label{
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 24px;
-    letter-spacing: 0.03em;
-    color: #757575;
 
+.form-icon {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+
+    transform: translate(-50%);
+
+    display: inline-block;
+    width: 20px;
+    height: 20px;
 }
+
+.form-input:focus ~ .form-icon{
+    fill: var(--accent-color);
+}
+
+.form-input:focus,
+.form-field textarea:focus{
+    border-color: var(--accent-color);
+    outline: none;
+    cursor: pointer;
+}
+
 .form-text{
     padding-bottom: 12px;
     font-family: Roboto;
@@ -558,9 +574,10 @@ textarea {
 
     color: #212121;
 }
+
 .form-button{
     padding: 10px 56px;
-    background: #2196F3;
+    background: #2196F3;;
     border: 1px solid #2196F3;
     border-radius: 4px;
     color: #FFFFFF;
@@ -571,6 +588,14 @@ textarea {
     line-height: 30px;
     letter-spacing: 0.06em;
 }
+.form-button:focus{
+    background-color: #188CE8;
+    border-color: #188CE8;
+    color: #FFFFFF;
+    outline: none;
+    cursor: pointer;
+}
+
  .buttom{
     position: absolute;
     right: 8px;
@@ -581,6 +606,12 @@ textarea {
     border-radius: 50%;
     background-color: #FFFFFF;
 }
+
+.buttom:focus{
+   color:  #2196F3;
+}
+
+
 
 .clients{
     padding-top: 94px;
@@ -602,6 +633,63 @@ textarea {
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* Checkbox */
+
+.checkbox {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    position: absolute;
+}
+
+.label {
+    display: flex;
+    align-items: center;
+    outline: 1px solid black;
+ }
+
+.lable-list{
+    margin-bottom: 30px;
+}
+
+ .text-decor {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: 0.03em;
+     color: #757575;
+ }
+
+.icon {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin-right: 7px;
+
+    border: 2px solid black;
+    border-radius: 4px;
+}
+
+.checkbox:checked + .icon{
+    border-color: #188CE8;
+    background-color: #188CE8;
+    background-image: url(../img/icons/icon\ check\ \(1\).svg);
+    background-size: contain;
+    background-origin: border-box;
+ }
+ 
+
+.agreement  {
+    color: blue;
+    text-decoration: underline;
+}
+.agreement :hover {
+    text-decoration: underline;
+    color: #188CE8;
+}
 
 .client-list-item{
 width: calc((100%-150px) / 6);
@@ -946,8 +1034,14 @@ margin-bottom: 20px;
     color: rgba(255, 255, 255, 0.6);
 }
 
+
 .footer-button{
-    padding: 10px 56px;
+    display: inline-flex;
+    align-items: center;
+    padding-top: 10px;
+    padding-right: 29px;
+    padding-bottom: 10px;
+    padding-left: 29px;
     background: #2196F3;
     border: 1px solid #2196F3;
     border-radius: 4px;
@@ -958,6 +1052,18 @@ margin-bottom: 20px;
     font-size: 16px;
     line-height: 30px;
     letter-spacing: 0.06em;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.footer-button::after{
+    content: '';
+    width: 24px;
+    height: 24px;
+    margin-left: 10px;
+    background-image: url(../img/icons/icon\ send\ \(1\).svg);
+   
+
 }
 
 .site-works .item{
